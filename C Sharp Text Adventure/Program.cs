@@ -36,10 +36,7 @@ namespace C_Sharp_Text_Adventure
 
     class Program
     {
-        static void NL()
-        {
-            Console.WriteLine("");
-        }
+        static void NL() => Console.WriteLine("");
 
         static void Main(string[] args)
         {
@@ -86,8 +83,8 @@ namespace C_Sharp_Text_Adventure
                 "  1. Knight\n" +
                 "  2. Wizard\n" +
                 "  3. Rogue");
-            int userInput = Console.ReadLine();
-            Console.WriteLine(userInput);
+            //int userInput = Console.ReadLine();
+            //Console.WriteLine(userInput);
 
             // Character playableKnight = new Character();
 
