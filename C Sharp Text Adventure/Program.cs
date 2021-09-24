@@ -8,16 +8,17 @@ namespace C_Sharp_Text_Adventure
 {
     public class Character
     {
-        public int race;
-        public int charClass;
-        public int subclass;
-
+        public string race;
+        public string mainClass;
+        public string subclass;
         public int level;
         public int xp;
+
         public int maxHP;
         public int currentHP;
         public int maxMP;
         public int currentMP;
+
         public int strength;
         public int speed;
         public int intelligence;
@@ -31,65 +32,91 @@ namespace C_Sharp_Text_Adventure
         public string classArmor;
         public string ring1;
         public string ring2;
+        public int gold;
         public string[] charInventory;
     }
 
-    class Program
+    public class Weapon
     {
-        static void NL() => Console.WriteLine("");
+        public string attackType;
+        public int attackPower;
+        public int attackRate;
+        public int defensePower;
+    }
 
-        static void Main(string[] args)
-        {
-            #region List of Stats
+    #region List of Stats
             /*
             http://howtomakeanrpg.com/a/how-to-make-an-rpg-stats.html?scrlybrkr
 
                 Characters:
                     - Race
-                    - Class
+                    - Main Class
                     - Subclass
-
                     - Level
                     - XP
+
                     - Max HP
                     - Current HP
                     - Max MP
                     - Current MP
+
                     - Strength
                     - Speed
                     - Intelligence
 
-                    - leftHand
-                    - rightHand
-                    - head
-                    - arms
-                    - chest
-                    - legs
-                    - classArmor
-                    - ring1
-                    - ring2
-                    - charInventory
+                    - Left Hand
+                    - Right Hand
+                    - Head
+                    - Arms
+                    - Chest
+                    - Legs
+                    - Class Armor
+                    - Ring 1
+                    - Ring 2
+                    - Gold
+                    - Character Inventory
                    
                 Weapons:
                     - Attack Type
+                    - Attack Power
                     - Attack Rate
                     - Defense Power
             */
             #endregion
 
-            Console.WriteLine("To make a selection enter only the number that corresponds with an option");
-            NL();
-            Console.WriteLine("Choose a Class:\n" +
-                "  1. Knight\n" +
-                "  2. Wizard\n" +
-                "  3. Rogue");
-            //int userInput = Console.ReadLine();
-            //Console.WriteLine(userInput);
+    class Program
+    {
+        // Empty Line
+        static void EL() => Console.WriteLine("");
 
-            // Character playableKnight = new Character();
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Welcome to Dungeons, Dungeons, & More Dungeons!");
+            Console.WriteLine("Start with creating your character.");
+            Console.WriteLine("To make selections, enter only a number that corresponds with an option.");
+            mainClassSelect();
 
             Console.ReadKey();
         }
 
+        static void mainClassSelect()
+        {
+            EL();
+            Console.WriteLine("Choose a Class:\n" +
+                "  1. Knight\n" +
+                "  2. Wizard\n" +
+                "  3. Rogue");
+
+            string userInput = Console.ReadLine();
+
+            if (userInput == "1") {Character playerKnight = new Character();}
+            else if (userInput == "2") {Character playerWizard = new Character();}
+            else if (userInput == "3") {Character playerRogue = new Character();}
+            else
+            {
+                Console.WriteLine("Error! Enter only a number that corresponds with one of the options. Do net spell out the number.");
+                mainClassSelect();
+            }
+        }
     }
 }
